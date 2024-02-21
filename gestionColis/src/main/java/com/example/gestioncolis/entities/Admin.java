@@ -4,7 +4,7 @@ public class Admin {
     // Attributs
     private int id;
 
-    int a;
+    int aB;
     private String login;
     private String password;
 
