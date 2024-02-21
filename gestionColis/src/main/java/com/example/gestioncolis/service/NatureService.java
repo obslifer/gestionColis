@@ -7,7 +7,7 @@ import java.util.List;
 public interface NatureService {
     public void create(Nature nature);
     public void update(Nature nature);
-    public void delete(Nature nature);
-    public Nature getById(Nature nature);
+    public void delete(int id);
+    public Nature getById(int id);
     public List<Nature> getAll();
 }
