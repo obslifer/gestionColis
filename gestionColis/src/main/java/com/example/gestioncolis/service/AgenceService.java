@@ -1,7 +1,9 @@
 package com.example.gestioncolis.service;
 
 import com.example.gestioncolis.entities.Agence;
+import com.example.gestioncolis.entities.Colis;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface AgenceService {
@@ -10,4 +12,6 @@ public interface AgenceService {
     public void delete(int id);
     public Agence getById(int id);
     public List<Agence> getAll();
+    public List<Colis> getColisEnAttentePourAgence(int idAgence);
+    public void signalerReceptionColis(int numeroColis, int idAgence);
 }

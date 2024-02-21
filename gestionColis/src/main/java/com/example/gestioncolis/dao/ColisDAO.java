@@ -77,6 +77,21 @@ public class ColisDAO {
         return colisList;
     }
 
+    public List<Colis> getColisEnAttentePourAgence(int idAgence) throws SQLException {
+        List<Colis> colisEnAttente = new ArrayList<>();
+        String query = "SELECT * FROM Colis_Attendus_Agence WHERE id_agence = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, idAgence);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Colis colis = extractColisFromResultSet(resultSet);
+                colisEnAttente.add(colis);
+            }
+        }
+        return colisEnAttente;
+    }
+
     private Colis extractColisFromResultSet(ResultSet resultSet) throws SQLException {
         Colis colis = new Colis(resultSet.getInt("numero_colis"), resultSet.getInt("type"), resultSet.getInt("CNI_destinataire"), resultSet.getInt("CNI_expediteur"), resultSet.getString("etat"), resultSet.getInt("id_agence_destination"));
         return colis;
