@@ -86,14 +86,49 @@ public class AgenceServiceImpl implements AgenceService {
     }
 
     @Override
-    public void signalerReceptionColis(int numeroColis, int idAgence) {
+    public void signalerReceptionColis(List<Colis> colisList, int idAgence) {
         try {
-            Relais relais = new Relais(numeroColis, idAgence, new Timestamp(System.currentTimeMillis()), null);
-            relaisDAO.update(relais);
+            for (Colis colis : colisList) {
+                Relais relais = new Relais(colis.getNumeroColis(), idAgence, new Timestamp(System.currentTimeMillis()), null);
+                relaisDAO.updateDateArrivee(relais);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Colis> getColisEnAttenteDepartPourAgence(int idAgence) {
+        try {
+            return colisDAO.getColisEnAttenteDepartPourAgence(idAgence);
         } catch (SQLException e) {
             e.printStackTrace();
 
         }
+        return null;
+    }
+
+    @Override
+    public void signalerDepartColis(List<Colis> colisList, int idAgence) {
+        try {
+            for (Colis colis : colisList) {
+                Relais relais = new Relais(colis.getNumeroColis(), idAgence, null, new Timestamp(System.currentTimeMillis()));
+                relaisDAO.updateDateDepart(relais);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Colis> getColisQuittesPourAgence(int idAgence) {
+        try {
+            return colisDAO.getColisQuittesPourAgence(idAgence);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Gérer l'exception selon vos besoins
+        }
+        return null;
     }
 }
 

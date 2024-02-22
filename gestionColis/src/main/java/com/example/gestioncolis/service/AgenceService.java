@@ -13,5 +13,8 @@ public interface AgenceService {
     public Agence getById(int id);
     public List<Agence> getAll();
     public List<Colis> getColisEnAttentePourAgence(int idAgence);
-    public void signalerReceptionColis(int numeroColis, int idAgence);
+    public void signalerReceptionColis(List<Colis> colisList, int idAgence);
+    public List<Colis> getColisEnAttenteDepartPourAgence(int idAgence);
+    public void signalerDepartColis(List<Colis> colisList, int idAgence);
+    public List<Colis> getColisQuittesPourAgence(int idAgence);
 }
