@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1195.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestioncolis.EnregistrerColisController">
@@ -31,11 +32,11 @@
                         <TextField fx:id="TextFieldExpediteur" layoutX="17.0" layoutY="197.0" prefHeight="34.0" prefWidth="280.0" promptText="CNI Expediteur" />
                         <Button fx:id="btnAjouter" layoutX="29.0" layoutY="323.0" mnemonicParsing="false" onAction="#onBtnAjouterClicked" prefHeight="45.0" prefWidth="114.0" text="Ajouter" />
                         <Button fx:id="btnAnnuler" layoutX="172.0" layoutY="323.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="114.0" text="Annuler" />
-                        <Button fx:id="btnColisEnvoyé" layoutX="28.0" layoutY="444.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="114.0" text="Colis Envoyés" />
-                        <Button fx:id="btnAnnuler1" layoutX="171.0" layoutY="444.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="114.0" text="Colis Reçus" />
-                        <RadioButton layoutX="42.0" layoutY="509.0" mnemonicParsing="false" text="Sortie" />
-                        <RadioButton layoutX="195.0" layoutY="509.0" mnemonicParsing="false" text="En Stock" />
-                        <RadioButton layoutX="120.0" layoutY="541.0" mnemonicParsing="false" text="Attendus" />
+                        <Button fx:id="btnColisEnvoyé" layoutX="28.0" layoutY="444.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="114.0" text="Colis Envoyés" onAction="#signalerDepartColis" />
+                        <Button fx:id="btnColisRecus" layoutX="171.0" layoutY="444.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="114.0" text="Colis Reçus" onAction="#signalerReceptionColis"/>
+                        <RadioButton fx:id="radioButtonSortie" layoutX="42.0" layoutY="509.0" mnemonicParsing="false" text="Sortie" />
+                        <RadioButton fx:id="radioButtonEnStock" layoutX="195.0" layoutY="509.0" mnemonicParsing="false" text="En Stock" />
+                        <RadioButton fx:id="radioButtonAttendus" layoutX="120.0" layoutY="541.0" mnemonicParsing="false" text="Attendus" />
                         <ComboBox fx:id="ComboBoxType" layoutX="18.0" layoutY="98.0" prefHeight="35.0" prefWidth="278.0" />
                         <ComboBox fx:id="ComboBoxAgenceDestination" layoutX="18.0" layoutY="253.0" prefHeight="35.0" prefWidth="278.0" />
                      </children>
@@ -60,7 +61,17 @@
                <children>
                   <AnchorPane layoutX="4.0" layoutY="4.0" prefHeight="594.0" prefWidth="864.0" style="-fx-background-color: ccc;">
                      <children>
-                        <TableView fx:id="TableView" layoutX="4.0" layoutY="5.0" prefHeight="584.0" prefWidth="855.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="594.0" prefWidth="865.0">
+                           <children>
+                              <Label text="COLIS">
+                                 <font>
+                                    <Font size="33.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="ListViewColis" prefHeight="552.0" prefWidth="865.0" />
+                           </children>
+                        </VBox>
+                        <TableView fx:id="TableView" prefHeight="584.0" prefWidth="855.0" visible="false">
                           <columns>
                             <TableColumn fx:id="TableColumnNumeroColis" prefWidth="85.6000394821167" text="numeroColis" />
                             <TableColumn fx:id="TableColumnType" prefWidth="89.60003662109375" text="type" />

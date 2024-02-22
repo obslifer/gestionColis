@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 public class EnregistrerColisController implements Initializable {
 
     public Button btnAnnuler2;
+    public Button btnColisRecus;
     @FXML
     private AnchorPane gestionColisPane;
 
@@ -59,15 +60,6 @@ public class EnregistrerColisController implements Initializable {
 
     @FXML
     private Button btnAnnuler1;
-
-    @FXML
-    private RadioButton radioButtonSortie;
-
-    @FXML
-    private RadioButton radioButtonEnStock;
-
-    @FXML
-    private RadioButton radioButtonAttendus;
 
     @FXML
     private AnchorPane ittinerairePane;
@@ -107,6 +99,21 @@ public class EnregistrerColisController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> TableColumnSelection;
+
+    @FXML
+    private RadioButton radioButtonSortie;
+
+    @FXML
+    private RadioButton radioButtonEnStock;
+
+    @FXML
+    private RadioButton radioButtonAttendus;
+
+
+    @FXML
+    private ListView<Colis> ListViewColis;
+
+    private ColisServiceImpl colisService;
 
     AgenceServiceImpl agenceServiceImpl;
     NatureServiceImpl natureServiceImpl;
@@ -192,36 +199,6 @@ public class EnregistrerColisController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @FXML
-    void onBtnAnnulerClicked() {
-        // Mettez ici le code à exécuter lorsque le bouton "Annuler" est cliqué
-    }
-
-    @FXML
-    void onBtnColisEnvoyéClicked() {
-        // Mettez ici le code à exécuter lorsque le bouton "Colis Envoyés" est cliqué
-    }
-
-    @FXML
-    void onBtnAnnuler1Clicked() {
-        // Mettez ici le code à exécuter lorsque le bouton "Colis Reçus" est cliqué
-    }
-
-    @FXML
-    void onRadioButtonSortieSelected() {
-        // Mettez ici le code à exécuter lorsque le bouton radio "Sortie" est sélectionné
-    }
-
-    @FXML
-    void onRadioButtonEnStockSelected() {
-        // Mettez ici le code à exécuter lorsque le bouton radio "En Stock" est sélectionné
-    }
-
-    @FXML
-    void onRadioButtonAttendusSelected() {
-        // Mettez ici le code à exécuter lorsque le bouton radio "Attendus" est sélectionné
     }
 
     @FXML
@@ -318,23 +295,120 @@ public class EnregistrerColisController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ittinerairePane.setVisible(false);
         ListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        ListViewColis.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        ToggleGroup toggleGroup = new ToggleGroup();
+        radioButtonSortie.setToggleGroup(toggleGroup);
+        radioButtonEnStock.setToggleGroup(toggleGroup);
+        radioButtonAttendus.setToggleGroup(toggleGroup);
+
+        toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                RadioButton selectedRadioButton = (RadioButton) newValue;
+                String text = selectedRadioButton.getText();
+
+                // Appeler la méthode appropriée en fonction du bouton radio sélectionné
+                switch (text) {
+                    case "Sortie":
+                        afficherColis(colisService.getColisQuittesPourAgence(sessionAgence.getId()));
+                        break;
+                    case "En Stock":
+                        afficherColis(colisService.getColisEnAttenteDepartPourAgence(sessionAgence.getId()));
+                        break;
+                    case "Attendus":
+                        afficherColis(colisService.getColisEnAttentePourAgence(sessionAgence.getId()));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
 
         try {
             natureServiceImpl = new NatureServiceImpl();
             agenceServiceImpl = new AgenceServiceImpl();
             utilisateurServiceImpl = new UtilisateurServiceImpl();
+            colisService = new ColisServiceImpl();
 
             //sessionAgence = agenceServiceImpl.getByLogin(Session.login);
             sessionAgence = agenceServiceImpl.getById(1);
 
             chargerOptionsAgenceDestination();
             chargerOptionsTypeColis();
-            ShowMessage.showMessage("wirr");
         } catch (SQLException e) {
             ShowMessage.showMessage("werr");
             throw new RuntimeException(e);
         }
 
+    }
+
+    private void afficherColis(List<Colis> colisList) {
+        ListViewColis.getItems().clear();
+        ListViewColis.setCellFactory(new Callback<ListView<Colis>, ListCell<Colis>>() {
+            @Override
+            public ListCell<Colis> call(ListView<Colis> param) {
+                return new ListCell<Colis>() {
+                    @Override
+                    protected void updateItem(Colis colis, boolean empty) {
+                        super.updateItem(colis, empty);
+                        if (empty || colis == null) {
+                            setText(null);
+                        } else {
+                            // Si c'est la première ligne, afficher les titres des colonnes
+                            if (getIndex() == 0) {
+                                setText("Numéro de colis    |    Type    |  CNI Destinataire     |  CNI Expediteur    |  État     |  Agence Destination");
+                                setStyle("-fx-font-weight: bold;-fx-font-size: 16px;");
+                            } else {
+                                // Afficher les informations sur le colis
+                                setStyle("-fx-font-size: 16px;");
+                                String typeColisLabel = natureServiceImpl.getById(colis.getType()).getType();
+                                Agence agenceDest = agenceServiceImpl.getById(colis.getIdAgenceDestination());
+                                String agenceDestInfo = "" + agenceDest.getVille() + ", " + agenceDest.getQuartier();
+                                setText(colis.getNumeroColis() + "      |    " +
+                                        typeColisLabel + "      |     " +
+                                        colis.getCNIDestinataire() + "  |    " +
+                                        colis.getCNIExpediteur() + "    |    " +
+                                        colis.getEtat() + "     |    " +
+                                        agenceDestInfo);
+                            }
+                        }
+                    }
+                };
+            }
+        });
+        // Ajouter les éléments à partir de l'index 1
+        Colis colisNull = new Colis(0, 0, 0, 0, "0", 0);
+        ListViewColis.getItems().add(colisNull); // Ajouter une ligne vide après les titres
+
+        for (Colis colis : colisList) {
+            ListViewColis.getItems().add(colis);
+        }
+    }
+    @FXML
+    private void signalerDepartColis() {
+        if (radioButtonEnStock.isSelected()) {
+            List<Colis> selectedColis = ListViewColis.getSelectionModel().getSelectedItems();
+            if (!selectedColis.isEmpty()) {
+                agenceServiceImpl.signalerDepartColis(selectedColis, sessionAgence.getId());
+            } else {
+                ShowMessage.showMessage("Veuillez sélectionner au moins un colis.");
+            }
+        } else {
+            ShowMessage.showMessage("Veuillez cocher le bouton 'En Stock' pour signaler le départ des colis.");
+        }
+    }
+    @FXML
+    private void signalerReceptionColis() {
+        if (radioButtonAttendus.isSelected()) {
+            List<Colis> selectedColis = ListViewColis.getSelectionModel().getSelectedItems();
+            if (!selectedColis.isEmpty()) {
+                agenceServiceImpl.signalerReceptionColis(selectedColis, sessionAgence.getId());
+            } else {
+                ShowMessage.showMessage("Veuillez sélectionner au moins un colis.");
+            }
+        } else {
+            ShowMessage.showMessage("Veuillez cocher le bouton 'Attendus' pour signaler la réception des colis.");
+        }
     }
 
     public void onBtnAnnuler2Clicked(ActionEvent actionEvent) {
@@ -395,7 +469,7 @@ public class EnregistrerColisController implements Initializable {
 
         // Afficher la fenêtre de dialogue et attendre que l'utilisateur entre les informations
         Optional<Utilisateur> result = dialog.showAndWait();
-        return result.orElse(null); // Renvoyer l'utilisateur créé ou null si l'utilisateur a annulé la fenêtre de dialogue
+        return result.orElse(null);
     }
 
     private Utilisateur verifierOuCreerUtilisateur(String textCNI, String role) {
@@ -410,11 +484,10 @@ public class EnregistrerColisController implements Initializable {
                     // Enregistrer le nouvel utilisateur dans la base de données
                     utilisateurServiceImpl.create(utilisateur);
                 } else {
-                    // L'utilisateur a annulé la création, gérer en conséquence
+                    // erreur
                 }
             }
         } catch (NumberFormatException e) {
-            // Gérer l'exception si le CNI n'est pas un entier valide
             e.printStackTrace();
         }
         return utilisateur;
