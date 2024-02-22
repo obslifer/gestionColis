@@ -3,7 +3,10 @@ package com.example.gestioncolis.service;
 import com.example.gestioncolis.dao.ColisDAO;
 import com.example.gestioncolis.entities.Colis;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ColisServiceImpl implements ColisService {
@@ -19,7 +22,7 @@ public class ColisServiceImpl implements ColisService {
             colisDAO.create(colis);
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon vos besoins
+            
         }
     }
 
@@ -29,7 +32,7 @@ public class ColisServiceImpl implements ColisService {
             colisDAO.update(colis);
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon vos besoins
+            
         }
     }
 
@@ -39,7 +42,7 @@ public class ColisServiceImpl implements ColisService {
             colisDAO.delete(numeroColis);
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon vos besoins
+            
         }
     }
 
@@ -49,7 +52,7 @@ public class ColisServiceImpl implements ColisService {
             return colisDAO.getByNumeroColis(numeroColis);
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon vos besoins
+            
         }
         return null;
     }
@@ -60,7 +63,39 @@ public class ColisServiceImpl implements ColisService {
             return colisDAO.getAll();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon vos besoins
+            
+        }
+        return null;
+    }
+    @Override
+    public List<Colis> getColisEnAttentePourAgence(int idAgence) {
+        try {
+            return colisDAO.getColisEnAttentePourAgence(idAgence);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            
+        }
+        return null;
+    }
+
+    @Override
+    public List<Colis> getColisEnAttenteDepartPourAgence(int idAgence) {
+        try {
+            return colisDAO.getColisEnAttenteDepartPourAgence(idAgence);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+
+    @Override
+    public List<Colis> getColisQuittesPourAgence(int idAgence) {
+        try {
+            return colisDAO.getColisQuittesPourAgence(idAgence);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
         }
         return null;
     }

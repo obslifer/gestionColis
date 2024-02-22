@@ -34,6 +34,26 @@ public class RelaisServiceImpl implements RelaisService {
     }
 
     @Override
+    public void updateDateArrivee(Relais relais) {
+        try {
+            relaisDAO.updateDateArrivee(relais);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    @Override
+    public void updateDateDepart(Relais relais) {
+        try {
+            relaisDAO.updateDateDepart(relais);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    @Override
     public void delete(int numeroColis, int idAgence) {
         try {
             relaisDAO.delete(numeroColis, idAgence);

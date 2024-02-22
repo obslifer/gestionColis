@@ -1,8 +1,6 @@
 package com.example.gestioncolis.service;
 
 import com.example.gestioncolis.dao.AgenceDAO;
-import com.example.gestioncolis.dao.ColisDAO;
-import com.example.gestioncolis.dao.RelaisDAO;
 import com.example.gestioncolis.entities.Agence;
 import com.example.gestioncolis.entities.Colis;
 import com.example.gestioncolis.entities.Relais;
@@ -13,13 +11,13 @@ import java.util.List;
 
 public class AgenceServiceImpl implements AgenceService {
     private AgenceDAO agenceDAO;
-    private ColisDAO colisDAO;
-    private RelaisDAO relaisDAO;
+    private RelaisServiceImpl relaisService;
+    private ColisServiceImpl colisService;
 
     public AgenceServiceImpl() throws SQLException {
         this.agenceDAO = new AgenceDAO();
-        this.colisDAO = new ColisDAO();
-        this.relaisDAO = new RelaisDAO();
+        this.colisService = new ColisServiceImpl();
+        this.relaisService = new RelaisServiceImpl();
     }
 
     @Override
@@ -76,59 +74,51 @@ public class AgenceServiceImpl implements AgenceService {
 
     @Override
     public List<Colis> getColisEnAttentePourAgence(int idAgence) {
-        try {
-            return colisDAO.getColisEnAttentePourAgence(idAgence);
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }
-        return null;
+        return colisService.getColisEnAttentePourAgence(idAgence);
     }
 
     @Override
     public void signalerReceptionColis(List<Colis> colisList, int idAgence) {
-        try {
-            for (Colis colis : colisList) {
-                Relais relais = new Relais(colis.getNumeroColis(), idAgence, new Timestamp(System.currentTimeMillis()), null);
-                relaisDAO.updateDateArrivee(relais);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        for (Colis colis : colisList) {
+            Relais relais = new Relais(colis.getNumeroColis(), idAgence, new Timestamp(System.currentTimeMillis()), null);
+            relaisService.updateDateArrivee(relais);
         }
     }
 
     @Override
     public List<Colis> getColisEnAttenteDepartPourAgence(int idAgence) {
-        try {
-            return colisDAO.getColisEnAttenteDepartPourAgence(idAgence);
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }
-        return null;
+        return colisService.getColisEnAttenteDepartPourAgence(idAgence);
     }
 
     @Override
     public void signalerDepartColis(List<Colis> colisList, int idAgence) {
-        try {
-            for (Colis colis : colisList) {
-                Relais relais = new Relais(colis.getNumeroColis(), idAgence, null, new Timestamp(System.currentTimeMillis()));
-                relaisDAO.updateDateDepart(relais);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        for (Colis colis : colisList) {
+            Relais relais = new Relais(colis.getNumeroColis(), idAgence, null, new Timestamp(System.currentTimeMillis()));
+            relaisService.updateDateDepart(relais);
         }
     }
 
     @Override
     public List<Colis> getColisQuittesPourAgence(int idAgence) {
-        try {
-            return colisDAO.getColisQuittesPourAgence(idAgence);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Gérer l'exception selon vos besoins
+        return colisService.getColisQuittesPourAgence(idAgence);
+    }
+
+    @Override
+    public void enregistrerColis(Colis colis, int idAgenceActuelle, List<Agence> itineraire) {
+        // Étape 1 : Créer le colis
+        colisService.create(colis);
+
+        // Étape 2 : Créer le relais associé à l'agence actuelle avec la date d'arrivée actuelle
+        Relais relaisAgenceActuelle = new Relais(colis.getNumeroColis(), idAgenceActuelle, new Timestamp(System.currentTimeMillis()), null);
+        relaisService.create(relaisAgenceActuelle);
+
+        // Étape 3 : Créer les relais pour les agences constituant l'itinéraire avec des dates nulles
+        for (Agence agence : itineraire) {
+            if (agence.getId() != idAgenceActuelle) { // Ne crée pas de relais pour l'agence actuelle
+                Relais relais = new Relais(colis.getNumeroColis(), agence.getId(), null, null);
+                relaisService.create(relais);
+            }
         }
-        return null;
     }
 }
 
