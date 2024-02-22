@@ -35,6 +35,26 @@ public class RelaisDAO {
         }
     }
 
+    public void updateDateArrivee(Relais relais) throws SQLException {
+        String query = "UPDATE relais SET date_arrivee = ? WHERE numero_colis = ? AND id_agence = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setTimestamp(1, relais.getDateArrivee());
+            statement.setInt(2, relais.getNumeroColis());
+            statement.setInt(3, relais.getIdAgence());
+            statement.executeUpdate();
+        }
+    }
+
+    public void updateDateDepart(Relais relais) throws SQLException {
+        String query = "UPDATE relais SET date_depart = ? WHERE numero_colis = ? AND id_agence = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setTimestamp(1, relais.getDateDepart());
+            statement.setInt(2, relais.getNumeroColis());
+            statement.setInt(3, relais.getIdAgence());
+            statement.executeUpdate();
+        }
+    }
+
     public void delete(int numeroColis, int idAgence) throws SQLException {
         String query = "DELETE FROM relais WHERE numero_colis = ? AND id_agence = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {

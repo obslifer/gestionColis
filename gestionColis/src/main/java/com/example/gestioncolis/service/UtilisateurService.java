@@ -7,7 +7,7 @@ import java.util.List;
 public interface UtilisateurService {
     public void create(Utilisateur utilisateur);
     public void update(Utilisateur utilisateur);
-    public void delete(Utilisateur utilisateur);
-    public Utilisateur getById(Utilisateur utilisateur);
+    public void delete(int cni);
+    public Utilisateur getByCNI(int cni);
     public List<Utilisateur> getAll();
 }

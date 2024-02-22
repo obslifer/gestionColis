@@ -3,6 +3,7 @@ package com.example.gestioncolis.entities;
 public class Admin {
     // Attributs
     private int id;
+    int a=0;
     private String login;
     private String password;
 

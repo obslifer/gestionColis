@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestioncolis.EnregistrerColisController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+      <BorderPane prefHeight="602.0" prefWidth="878.0">
+         <left>
+            <AnchorPane prefHeight="602.0" prefWidth="323.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="4.0" layoutY="5.0" prefHeight="592.0" prefWidth="314.0" style="-fx-background-color: ccc;">
+                     <children>
+                        <Label layoutX="47.0" layoutY="81.0" text="Enregistrement Des Colis">
+                           <font>
+                              <Font name="SansSerif Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textFieldNumeroColis" layoutX="22.0" layoutY="132.0" prefHeight="34.0" prefWidth="280.0" promptText="NumeroColis" />
+                        <TextField fx:id="TextFieldType" layoutX="22.0" layoutY="182.0" prefHeight="34.0" prefWidth="280.0" promptText="Type" />
+                        <TextField fx:id="TextFieldDestinataire" layoutX="22.0" layoutY="230.0" prefHeight="34.0" prefWidth="280.0" promptText="CNI Destinataire" />
+                        <TextField fx:id="TextFieldExpediteur" layoutX="22.0" layoutY="279.0" prefHeight="34.0" prefWidth="280.0" promptText="CNI Expediteur" />
+                        <TextField fx:id="TextFieldEtat" layoutX="22.0" layoutY="327.0" prefHeight="34.0" prefWidth="280.0" promptText="Etat" />
+                        <TextField fx:id="TextFieldAgenceDestination" layoutX="22.0" layoutY="373.0" prefHeight="34.0" prefWidth="280.0" promptText="ID Agence Destination" />
+                        <Button fx:id="btnAjouter" layoutX="34.0" layoutY="445.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="113.0" text="Ajouter" />
+                        <Button fx:id="btnAnnuler" layoutX="177.0" layoutY="445.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="113.0" text="Annuler" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="4.0" layoutY="4.0" prefHeight="594.0" prefWidth="567.0" style="-fx-background-color: ccc;">
+                     <children>
+                        <TableView fx:id="TableView" layoutX="4.0" layoutY="5.0" prefHeight="586.0" prefWidth="557.0">
+                          <columns>
+                            <TableColumn fx:id="TableColumnNumeroColis" prefWidth="85.6000394821167" text="numeroColis" />
+                            <TableColumn fx:id="TableColumnType" prefWidth="89.60003662109375" text="type" />
+                              <TableColumn fx:id="TableColumnDestinataire" prefWidth="89.60003662109375" text="CNI Destinataire" />
+                              <TableColumn fx:id="TableColumnExpediteur" prefWidth="89.60003662109375" text="CNI Expediteur" />
+                              <TableColumn fx:id="TableColumnEtat" prefWidth="94.39996337890625" text="Etat" />
+                              <TableColumn fx:id="TableColumnAgenceDestination" prefWidth="103.2000732421875" text="ID Agence Destination" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
