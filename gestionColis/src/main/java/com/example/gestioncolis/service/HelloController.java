@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import com.example.gestioncolis.service.StudentService;
-import com.example.gestioncolis.service.StudentServiceImpl;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -29,14 +27,7 @@ public class HelloController implements Initializable {
         success.setVisible(false);
     }
 
-    @FXML
-    protected void bouttonClick() throws SQLException {
-        Student student=new Student(tfirstname.getText(), tlastname.getText(), tphone.getText(), tcourse.getText());
-        StudentService studentService=new StudentServiceImpl();
-        studentService.create(student);
 
-        success.setVisible(true);
-    }
 
 
 }
