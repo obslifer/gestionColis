@@ -42,7 +42,7 @@
                         <RadioButton layoutX="120.0" layoutY="541.0" mnemonicParsing="false" text="Attendus" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="7.0" layoutY="6.0" prefHeight="590.0" prefWidth="309.0" style="-fx-background-color: ccc;">
+                  <AnchorPane layoutX="7.0" layoutY="6.0" prefHeight="590.0" prefWidth="309.0" style="-fx-background-color: ccc;" visible="false">
                      <children>
                         <Label layoutX="104.0" layoutY="42.0" text="ITINERAIRE">
                            <font>
