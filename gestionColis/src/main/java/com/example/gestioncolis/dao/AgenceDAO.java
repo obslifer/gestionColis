@@ -60,6 +60,18 @@ public class AgenceDAO {
         return null;
     }
 
+    public Agence getByLogin(String login) throws SQLException {
+        String query = "SELECT * FROM agence WHERE login = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return extractAgenceFromResultSet(resultSet);
+            }
+        }
+        return null;
+    }
+
     public List<Agence> getAll() throws SQLException {
         List<Agence> agenceList = new ArrayList<>();
         String query = "SELECT * FROM agence";

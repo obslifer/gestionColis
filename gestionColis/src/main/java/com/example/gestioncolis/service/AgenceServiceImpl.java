@@ -62,6 +62,17 @@ public class AgenceServiceImpl implements AgenceService {
     }
 
     @Override
+    public Agence getByLogin(String login) {
+        try {
+            return agenceDAO.getByLogin(login);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+
+    @Override
     public List<Agence> getAll() {
         try {
             return agenceDAO.getAll();
@@ -111,6 +122,7 @@ public class AgenceServiceImpl implements AgenceService {
         // Étape 2 : Créer le relais associé à l'agence actuelle avec la date d'arrivée actuelle
         Relais relaisAgenceActuelle = new Relais(colis.getNumeroColis(), idAgenceActuelle, new Timestamp(System.currentTimeMillis()), null);
         relaisService.create(relaisAgenceActuelle);
+        relaisService.updateDateArrivee(relaisAgenceActuelle);
 
         // Étape 3 : Créer les relais pour les agences constituant l'itinéraire avec des dates nulles
         for (Agence agence : itineraire) {

@@ -11,6 +11,7 @@ public interface AgenceService {
     public void update(Agence agence);
     public void delete(int id);
     public Agence getById(int id);
+    public Agence getByLogin(String login);
     public List<Agence> getAll();
     public List<Colis> getColisEnAttentePourAgence(int idAgence);
     public void signalerReceptionColis(List<Colis> colisList, int idAgence);
