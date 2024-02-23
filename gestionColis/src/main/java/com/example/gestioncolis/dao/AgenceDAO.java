@@ -1,6 +1,7 @@
 package com.example.gestioncolis.dao;
 
 import com.example.gestioncolis.entities.Agence;
+import com.example.gestioncolis.service.PasswordHacher;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class AgenceDAO {
             statement.setString(1, agence.getQuartier());
             statement.setString(2, agence.getVille());
             statement.setString(3, agence.getLogin());
-            statement.setString(4, agence.getPassword());
+            statement.setString(4, PasswordHacher.hacher(agence.getPassword()));
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             if (rs.next()) {

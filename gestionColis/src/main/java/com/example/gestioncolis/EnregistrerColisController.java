@@ -5,16 +5,20 @@ import com.example.gestioncolis.service.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -109,6 +113,8 @@ public class EnregistrerColisController implements Initializable {
     @FXML
     private RadioButton radioButtonAttendus;
 
+    @FXML
+    private Button deconnexion;
 
     @FXML
     private ListView<Colis> ListViewColis;
@@ -125,6 +131,20 @@ public class EnregistrerColisController implements Initializable {
     @FXML
     void initialize() throws SQLException {
 
+    }
+
+    @FXML
+    void deconnecter(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginPage.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
+            Stage stage = (Stage) deconnexion.getScene().getWindow();
+            stage.setTitle("Colis Manager");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -252,7 +272,9 @@ public class EnregistrerColisController implements Initializable {
 
         if (agences != null) {
             for (Agence agence : agences) {
-                ComboBoxAgenceDestination.getItems().add(agence);
+                if(agence.getId() != sessionAgence.getId()) {
+                    ComboBoxAgenceDestination.getItems().add(agence);
+                }
             }
         }
     }
@@ -330,8 +352,8 @@ public class EnregistrerColisController implements Initializable {
             utilisateurServiceImpl = new UtilisateurServiceImpl();
             colisService = new ColisServiceImpl();
 
-            //sessionAgence = agenceServiceImpl.getByLogin(Session.login);
-            sessionAgence = agenceServiceImpl.getById(1);
+            sessionAgence = agenceServiceImpl.getByLogin(Session.login);
+            //sessionAgence = agenceServiceImpl.getById(1);
 
             chargerOptionsAgenceDestination();
             chargerOptionsTypeColis();

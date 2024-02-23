@@ -8,6 +8,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -23,22 +25,33 @@
                <children>
                   <AnchorPane fx:id="gestionColisPane" layoutX="4.0" layoutY="5.0" prefHeight="592.0" prefWidth="314.0" style="-fx-background-color: ccc;">
                      <children>
-                        <Label layoutX="65.0" layoutY="44.0" text="GESTION DES COLIS">
+                        <Label layoutX="65.0" layoutY="77.0" text="GESTION DES COLIS">
                            <font>
                               <Font name="SansSerif Bold" size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="TextFieldDestinataire" layoutX="17.0" layoutY="148.0" prefHeight="34.0" prefWidth="280.0" promptText="CNI Destinataire" />
-                        <TextField fx:id="TextFieldExpediteur" layoutX="17.0" layoutY="197.0" prefHeight="34.0" prefWidth="280.0" promptText="CNI Expediteur" />
-                        <Button fx:id="btnAjouter" layoutX="29.0" layoutY="323.0" mnemonicParsing="false" onAction="#onBtnAjouterClicked" prefHeight="45.0" prefWidth="114.0" text="Ajouter" />
-                        <Button fx:id="btnAnnuler" layoutX="172.0" layoutY="323.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="114.0" text="Annuler" />
-                        <Button fx:id="btnColisEnvoyé" layoutX="28.0" layoutY="444.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="114.0" text="Colis Envoyés" onAction="#signalerDepartColis" />
-                        <Button fx:id="btnColisRecus" layoutX="171.0" layoutY="444.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="114.0" text="Colis Reçus" onAction="#signalerReceptionColis"/>
+                        <TextField fx:id="TextFieldDestinataire" layoutX="17.0" layoutY="181.0" prefHeight="34.0" prefWidth="280.0" promptText="CNI Destinataire" />
+                        <TextField fx:id="TextFieldExpediteur" layoutX="17.0" layoutY="230.0" prefHeight="34.0" prefWidth="280.0" promptText="CNI Expediteur" />
+                        <Button fx:id="btnAjouter" layoutX="29.0" layoutY="356.0" mnemonicParsing="false" onAction="#onBtnAjouterClicked" prefHeight="45.0" prefWidth="114.0" text="Ajouter" />
+                        <Button fx:id="btnAnnuler" layoutX="172.0" layoutY="356.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="114.0" text="Annuler" />
+                        <Button fx:id="btnColisEnvoyé" layoutX="28.0" layoutY="444.0" mnemonicParsing="false" onAction="#signalerDepartColis" prefHeight="45.0" prefWidth="114.0" text="Colis Envoyés" />
+                        <Button fx:id="btnColisRecus" layoutX="171.0" layoutY="444.0" mnemonicParsing="false" onAction="#signalerReceptionColis" prefHeight="46.0" prefWidth="114.0" text="Colis Reçus" />
                         <RadioButton fx:id="radioButtonSortie" layoutX="42.0" layoutY="509.0" mnemonicParsing="false" text="Sortie" />
                         <RadioButton fx:id="radioButtonEnStock" layoutX="195.0" layoutY="509.0" mnemonicParsing="false" text="En Stock" />
                         <RadioButton fx:id="radioButtonAttendus" layoutX="120.0" layoutY="541.0" mnemonicParsing="false" text="Attendus" />
-                        <ComboBox fx:id="ComboBoxType" layoutX="18.0" layoutY="98.0" prefHeight="35.0" prefWidth="278.0" />
-                        <ComboBox fx:id="ComboBoxAgenceDestination" layoutX="18.0" layoutY="253.0" prefHeight="35.0" prefWidth="278.0" />
+                        <ComboBox fx:id="ComboBoxType" layoutX="18.0" layoutY="131.0" prefHeight="35.0" prefWidth="278.0" />
+                        <ComboBox fx:id="ComboBoxAgenceDestination" layoutX="18.0" layoutY="303.0" prefHeight="35.0" prefWidth="278.0" />
+                        <Button fx:id="deconnexion" layoutX="3.0" layoutY="8.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="42.0" prefWidth="53.0">
+                           <graphic>
+                              <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../logos/Open%20Door.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="21.0" layoutY="106.0" text="Type" />
+                        <Label layoutX="22.0" layoutY="278.0" text="Destination" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="ittinerairePane" layoutX="7.0" layoutY="6.0" prefHeight="590.0" prefWidth="309.0" style="-fx-background-color: ccc;" visible="false">

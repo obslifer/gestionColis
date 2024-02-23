@@ -7,6 +7,7 @@ module com.example.gestioncolis {
     requires java.sql;
 
     opens com.example.gestioncolis to javafx.fxml;
+    opens com.example.gestioncolis.entities to javafx.base;
     exports com.example.gestioncolis;
     exports com.example.gestioncolis.service;
     opens com.example.gestioncolis.service to javafx.fxml;

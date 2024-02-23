@@ -2,23 +2,21 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestioncolis.service.LoginPageController">
    <children>
-      <TextField fx:id="tfirstname" layoutX="47.0" layoutY="109.0" prefHeight="44.0" prefWidth="333.0" promptText="login">
+      <TextField fx:id="tlogin" layoutX="47.0" layoutY="109.0" prefHeight="44.0" prefWidth="333.0" promptText="login">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField fx:id="tlastname" layoutX="47.0" layoutY="200.0" prefHeight="44.0" prefWidth="333.0" promptText="password">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </TextField>
-      <Button fx:id="bsend" layoutX="47.0" layoutY="335.0" mnemonicParsing="false" onAction="#bouttonClick" prefHeight="44.0" prefWidth="333.0" style="-fx-background-color: #0ce430;" text="Connexion" textFill="WHITE">
+      <Button fx:id="bsend" layoutX="47.0" layoutY="337.0" mnemonicParsing="false" onAction="#bouttonClick" prefHeight="44.0" prefWidth="333.0" style="-fx-background-color: #0ce430;" text="Connexion" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -28,15 +26,30 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="47.0" layoutY="272.0" text="Vous n'avez pas de compte?">
+      <Label layoutX="47.0" layoutY="282.0" text="Vous n'avez pas de compte?">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="261.0" layoutY="272.0" text="Creer un compte" textFill="#1d31cc" underline="true">
+      <Label fx:id="labelCreerCompte" layoutX="261.0" layoutY="282.0" onMouseClicked="#creer" text="Creer un compte" textFill="#1d31cc" underline="true">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <Label fx:id="labelErreur" layoutX="47.0" layoutY="227.0" text="Login ou mot de passe incorrect" textFill="#e10000" visible="false">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="tpassword" layoutX="47.0" layoutY="183.0" prefHeight="44.0" prefWidth="333.0" promptText="password">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </PasswordField>
+      <ImageView fitHeight="600.0" fitWidth="562.0" layoutX="437.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../logos/con.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestioncolis.service.UpdateController">
+   <children>
+      <Button fx:id="bsend" layoutX="35.0" layoutY="372.0" mnemonicParsing="false" onAction="#bouttonClick" prefHeight="44.0" prefWidth="333.0" style="-fx-background-color: #208ef5;" text="Valider" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tlogin" layoutX="35.0" layoutY="182.0" prefHeight="25.0" prefWidth="333.0" promptText="New login">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="tpassword" layoutX="35.0" layoutY="278.0" prefHeight="25.0" prefWidth="333.0" promptText="New password">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </PasswordField>
+      <Label fx:id="labelErreurLogin" layoutX="38.0" layoutY="205.0" text="Ce login est déjà utilisé" textFill="#dd0808" visible="false">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="600.0" fitWidth="577.0" layoutX="422.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../logos/insc.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

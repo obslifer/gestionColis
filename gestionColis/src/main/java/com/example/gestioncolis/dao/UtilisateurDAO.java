@@ -1,6 +1,7 @@
 package com.example.gestioncolis.dao;
 
 import com.example.gestioncolis.entities.Utilisateur;
+import com.example.gestioncolis.service.PasswordHacher;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,14 +15,15 @@ public class UtilisateurDAO {
     }
 
     public void create(Utilisateur utilisateur) throws SQLException {
-        String query = "INSERT INTO utilisateur (nom, tel, email, adresse, login, password) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO utilisateur (nom, tel, email, adresse, login, password, CNI) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, utilisateur.getNom());
             statement.setInt(2, utilisateur.getTel());
             statement.setString(3, utilisateur.getEmail());
             statement.setString(4, utilisateur.getAdresse());
             statement.setString(5, utilisateur.getLogin());
-            statement.setString(6, utilisateur.getPassword());
+            statement.setString(6, PasswordHacher.hacher(utilisateur.getPassword()));
+            statement.setInt(7, utilisateur.getCNI());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             if (rs.next()) {

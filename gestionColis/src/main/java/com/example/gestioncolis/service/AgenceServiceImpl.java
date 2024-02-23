@@ -7,6 +7,7 @@ import com.example.gestioncolis.entities.Relais;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AgenceServiceImpl implements AgenceService {
@@ -115,14 +116,21 @@ public class AgenceServiceImpl implements AgenceService {
     }
 
     @Override
-    public void enregistrerColis(Colis colis, int idAgenceActuelle, List<Agence> itineraire) {
+    public void enregistrerColis(Colis colis, int idAgenceActuelle, List<Agence> itineraire) throws SQLException {
         // Étape 1 : Créer le colis
         colisService.create(colis);
+        List<Colis> colisList = new ArrayList<>();
+        colisList.add(colis);
 
         // Étape 2 : Créer le relais associé à l'agence actuelle avec la date d'arrivée actuelle
-        Relais relaisAgenceActuelle = new Relais(colis.getNumeroColis(), idAgenceActuelle, new Timestamp(System.currentTimeMillis()), null);
+        AgenceServiceImpl agenceService = new AgenceServiceImpl();
+        Agence agenceDestination = agenceService.getById(colis.getIdAgenceDestination());
+
+        Relais relaisAgenceActuelle = new Relais(colis.getNumeroColis(), idAgenceActuelle, null, null);
+        Relais relaisAgenceDestination = new Relais(colis.getNumeroColis(), agenceDestination.getId(), null, null);
         relaisService.create(relaisAgenceActuelle);
-        relaisService.updateDateArrivee(relaisAgenceActuelle);
+        relaisService.create(relaisAgenceDestination);
+        signalerReceptionColis(colisList, idAgenceActuelle);
 
         // Étape 3 : Créer les relais pour les agences constituant l'itinéraire avec des dates nulles
         for (Agence agence : itineraire) {

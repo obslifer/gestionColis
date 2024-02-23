@@ -18,5 +18,5 @@ public interface AgenceService {
     public List<Colis> getColisEnAttenteDepartPourAgence(int idAgence);
     public void signalerDepartColis(List<Colis> colisList, int idAgence);
     public List<Colis> getColisQuittesPourAgence(int idAgence);
-    public void enregistrerColis(Colis colis, int idAgenceActuelle, List<Agence> itineraire);
+    public void enregistrerColis(Colis colis, int idAgenceActuelle, List<Agence> itineraire) throws SQLException;
 }
