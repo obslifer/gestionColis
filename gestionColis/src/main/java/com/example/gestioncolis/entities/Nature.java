@@ -9,6 +9,11 @@ public class Nature {
         this.type = type;
     }
 
+    public Nature(String type)
+    {
+        this.type = type;
+    }
+
     public int getIdNature() {
         return idNature;
     }

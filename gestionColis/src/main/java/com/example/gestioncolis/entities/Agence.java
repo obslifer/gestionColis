@@ -17,6 +17,13 @@ public class Agence {
         this.password = password;
     }
 
+    public Agence(String quartier, String ville, String login, String password) {
+        this.quartier = quartier;
+        this.ville = ville;
+        this.login = login;
+        this.password = password;
+    }
+
     public String toString() {
         return "Agence{" +
                 "id=" + id +

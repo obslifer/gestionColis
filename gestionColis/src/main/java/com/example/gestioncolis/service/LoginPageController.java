@@ -40,8 +40,8 @@ public class LoginPageController {
         PasswordHacher.setSession(tlogin.getText());
         if (retour == 1){
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("admin.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SwitchFormAgence.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 667, 441);
                 Stage stage = (Stage) bsend.getScene().getWindow();
                 stage.setTitle("Colis Manager");
                 stage.setScene(scene);

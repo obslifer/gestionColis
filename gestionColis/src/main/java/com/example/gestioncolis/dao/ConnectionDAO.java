@@ -12,7 +12,7 @@ public class ConnectionDAO {
     }
 
     public ConnectionDAO() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/gestion_colis";
+        String url = "jdbc:mysql://192.168.200.126:3306/gestion_colis";
         String user = "root";
         String pass = "";
         connection = DriverManager.getConnection(url,user,pass);

@@ -5,61 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f44acd5-213e-4e47-bfb8-f5a9426f5421" name="Changes" comment="okk">
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/ConnectionDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/ExpediteurDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/LoginDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/PageExpediteurDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/entities/Colis2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/entities/SuiviColis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/entities/SuiviColis2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/ExpediteurService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/ExpediteurServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/LoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/LoginServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/PageExpediteurController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/PageExpediteurService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/PageExpediteurServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/PasswordHacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/UpdateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/pageExpediteur.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/update.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/logos/BackArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/logos/OpenDoor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/logos/insc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/AlertMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/NatureColisController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/natureColis.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/EnregistrerColisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/EnregistrerColisController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/AgenceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/AgenceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/UtilisateurDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/UtilisateurDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/AgenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/AgenceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/AgenceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/AgenceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/SwitchFormAgenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/SwitchFormAgenceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/ConnectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/dao/ConnectionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/entities/Agence.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/entities/Agence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/entities/Nature.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/entities/Nature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/LoginPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/LoginPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/SigninPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/com/example/gestioncolis/service/SigninPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/EnregistrerColis.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/EnregistrerColis.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/SwitchFormAgence.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/SwitchFormAgence.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/admin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/loginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/loginPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/signinPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/src/main/resources/com/example/gestioncolis/signinPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColis.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColis.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$4$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/EnregistrerColisController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/HelloApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/SwitchFormAgence.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/SwitchFormAgence.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/SwitchFormAgenceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/SwitchFormAgenceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/admin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/dao/AgenceDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/dao/AgenceDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/dao/UtilisateurDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/dao/UtilisateurDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/entities/Agence.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/entities/Agence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/entities/Nature.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/entities/Nature.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/loginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/loginPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/AgenceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/AgenceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/AgenceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/AgenceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/LoginPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/LoginPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/SigninPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/service/SigninPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/signinPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/com/example/gestioncolis/signinPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestionColis/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/gestionColis/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,10 +61,14 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\glace\OneDrive\Documents\GitHub\gestionColis\gestionColis\src\main\resources\logos" />
+      <recent name="C:\Users\glace\OneDrive\Documents\GitHub\gestionColis\gestionColis\src\main\resources\com\example\gestioncolis" />
       <recent name="C:\Users\glace\OneDrive\Documents\GitHub\gestionColis\gestionColis\src\main\java\com\example\gestioncolis\service" />
       <recent name="C:\Users\glace\OneDrive\Documents\GitHub\gestionColis\gestionColis\src\main\java\com\example\gestioncolis\entities" />
-      <recent name="C:\Users\glace\OneDrive\Documents\GitHub\gestionColis\gestionColis\src\main\resources\com\example\gestioncolis" />
       <recent name="C:\Users\glace\OneDrive\Documents\GitHub\gestionColis\gestionColis\src\main\java\com\example\gestioncolis\dao" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.gestioncolis" />
+      <recent name="com.example.gestioncolis.service" />
     </key>
   </component>
   <component name="TaskManager">
